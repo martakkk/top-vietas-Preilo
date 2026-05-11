@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top vietas Preiļos</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            scroll-behavior:smooth;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+            color:#333;
+            line-height:1.6;
+        }
+
+        /* Navigācija */
+        header{
+            background:#1e3a5f;
+            position:fixed;
+            width:100%;
+            top:0;
+            z-index:1000;
+            box-shadow:0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        nav{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:15px 40px;
+        }
+
+        .logo{
+            color:white;
+            font-size:24px;
+            font-weight:bold;
+        }
+
+        .menu{
+            display:flex;
+            list-style:none;
+        }
+
+        .menu li{
+            margin-left:20px;
+        }
+
+        .menu a{
+            color:white;
+            text-decoration:none;
+            font-size:18px;
+            transition:0.3s;
+        }
+
+        .menu a:hover{
+            color:#ffd166;
+        }
+
+        /* Sākumlapa */
+        .hero{
+            height:100vh;
+            background: <img src="images/preilu_skats_3.png">) center/cover no-repeat;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            color:white;
+            padding:20px;
+        }
+
+        .hero-content{
+            background:rgba(0,0,0,0.6);
+            padding:40px;
+            border-radius:15px;
+        }
+
+        .hero h1{
+            font-size:55px;
+            margin-bottom:20px;
+        }
+
+        .hero p{
+            font-size:22px;
+        }
+
+        section{
+            padding:100px 10%;
+        }
+
+        h2{
+            text-align:center;
+            margin-bottom:40px;
+            color:#1e3a5f;
+            font-size:38px;
+        }
+
+        /* Kartītes */
+        .places{
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+            gap:25px;
+        }
+
+        .card{
+            background:white;
+            border-radius:15px;
+            overflow:hidden;
+            box-shadow:0 4px 10px rgba(0,0,0,0.15);
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-10px);
+        }
+
+        .card img{
+            width:100%;
+            height:220px;
+            object-fit:cover;
+        }
+
+        .card-content{
+            padding:20px;
+        }
+
+        .card h3{
+            margin-bottom:10px;
+            color:#1e3a5f;
+        }
+
+        /* Galerija */
+        .gallery{
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+            gap:15px;
+        }
+
+        .gallery img{
+            width:100%;
+            height:250px;
+            object-fit:cover;
+            border-radius:10px;
+            transition:0.3s;
+        }
+
+        .gallery img:hover{
+            transform:scale(1.05);
+        }
+
+        /* Interaktīvā sadaļa */
+        .rating-box{
+            background:white;
+            max-width:500px;
+            margin:auto;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 4px 10px rgba(0,0,0,0.1);
+            text-align:center;
+        }
+
+        select, button{
+            padding:12px;
+            margin-top:15px;
+            width:100%;
+            border-radius:8px;
+            border:1px solid #ccc;
+            font-size:16px;
+        }
+
+        button{
+            background:#1e3a5f;
+            color:white;
+            cursor:pointer;
+            transition:0.3s;
+            border:none;
+        }
+
+        button:hover{
+            background:#274d7d;
+        }
+
+        #result{
+            margin-top:20px;
+            font-size:20px;
+            font-weight:bold;
+            color:#1e3a5f;
+        }
+
+        footer{
+            background:#1e3a5f;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
+        /* Responsīvais dizains */
+        @media(max-width:768px){
+            nav{
+                flex-direction:column;
+            }
+
+            .menu{
+                margin-top:10px;
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .hero h1{
+                font-size:38px;
+            }
+
+            .hero p{
+                font-size:18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigācija -->
+    <header>
+        <nav>
+            <div class="logo">Preiļi</div>
+
+            <ul class="menu">
+                <li><a href="#home">Sākums</a></li>
+                <li><a href="#places">Vietas</a></li>
+                <li><a href="#gallery">Galerija</a></li>
+                <li><a href="#interactive">Interaktīvi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sākumlapa -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Top vietas Preiļos</h1>
+            <p>Atklāj skaistākās un interesantākās vietas Preiļos!</p>
+        </div>
+    </section>
+
+    <!-- Aprakstu sadaļa -->
+    <section id="places">
+        <h2>Populārākās vietas</h2>
+
+        <div class="places">
+
+            <div class="card">
+                <img src="images/preilu_pils.jpg" alt="Preiļu pils">
+                <div class="card-content">
+                    <h3>Preiļu pils</h3>
+                    <p>Vēsturiska un skaista pils ar lielu parku, ideāla pastaigām un fotografēšanai.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/lellu_galerija.jpg" alt="Leļļu galerija">
+                <div class="card-content">
+                    <h3>Leļļu galerija</h3>
+                    <p>Slavens tūrisma un izklaides vieta.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/preilu_estrade.jpg" alt="Estrāde">
+                <div class="card-content">
+                    <h3>Estrāde</h3>
+                    <p>Koncertu un citu pasākumu vieta.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/preilu_parks.jpg" alt="Parks">
+                <div class="card-content">
+                    <h3>Preiļu parks</h3>
+                    <p>Zaļa un mierīga vieta atpūtai, sportam un ģimenes pastaigām.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Fotogalerija -->
+    <section id="gallery">
+        <h2>Fotogalerija</h2>
+
+        <div class="gallery">
+            <img src="images/preilu_skats_1.jpg" alt="">
+            <img src="images/preilu_skats_2.jpg" alt="">
+            <img src="images/preilu_skats_3.png" alt="">
+        </div>
+    </section>
+
+    <!-- Interaktīvā sadaļa -->
+    <section id="interactive">
+        <h2>Nobalso par savu mīļāko vietu</h2>
+
+        <div class="rating-box">
+            <p>Izvēlies savu iecienītāko vietu Preiļos:</p>
+
+            <select id="placeSelect">
+                <option value="Preiļu pils">Preiļu pils</option>
+                <option value="Preiļu estrāde">Preiļu estrāde</option>
+                <option value="Preiļu parks">Preiļu parks</option>
+            </select>
+
+            <button onclick="showChoice()">Balsot</button>
+
+            <div id="result"></div>
+        </div>
+    </section>
+
+    <!-- Kājene -->
+    <footer>
+        <p>© 2026 Top vietas Preiļos | Izveidoja skolēns</p>
+    </footer>
+
+    <script>
+        function showChoice(){
+            let place = document.getElementById("placeSelect").value;
+            document.getElementById("result").innerHTML =
+                "Tu nobalsoji par: " + place + "!";
+        }
+    </script>
+
+</body>
+</html>
